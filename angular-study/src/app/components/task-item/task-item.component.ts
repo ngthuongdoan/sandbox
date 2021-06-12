@@ -12,6 +12,8 @@ import { Task } from '../../Task';
 export class TaskItemComponent implements OnInit {
   @Input() task!: Task;
   @Output() deleteTask: EventEmitter<Task> = new EventEmitter();
+  @Output() updateReminder = new EventEmitter();
+
   faTimes = faTimes;
 
   constructor(library: FaIconLibrary) {
@@ -21,5 +23,9 @@ export class TaskItemComponent implements OnInit {
   ngOnInit(): void {}
   onDelete(task: Task): void {
     this.deleteTask.emit(task);
+  }
+
+  toggleReminder():void{
+    this.updateReminder.emit(this.task)
   }
 }
