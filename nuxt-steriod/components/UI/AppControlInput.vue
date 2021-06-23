@@ -1,20 +1,20 @@
 <template>
   <div class="input-control">
     <label>
-      <slot></slot>
+      <slot />
     </label>
     <input
       v-if="controlType === 'input'"
       v-bind="$attrs"
       :value="value"
       @input="$emit('input', $event.target.value)"
-    >
+    />
     <textarea
       v-if="controlType === 'textarea'"
       :value="value"
       rows="10"
       @input="$emit('input', $event.target.value)"
-    ></textarea>
+    />
   </div>
 </template>
 
@@ -24,14 +24,14 @@ export default {
   props: {
     controlType: {
       type: String,
-      default: 'input'
+      default: 'input',
     },
     value: {
       type: String,
-      default: ''
-    }
-  }
-}
+      default: '',
+    },
+  },
+};
 </script>
 
 <style scoped>

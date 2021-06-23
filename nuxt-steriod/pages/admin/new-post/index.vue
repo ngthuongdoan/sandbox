@@ -7,13 +7,13 @@
 </template>
 
 <script>
-import AdminPostForm from "@/components/Admin/AdminPostForm";
+import AdminPostForm from '@/components/Admin/AdminPostForm';
 
 export default {
-  layout: 'admin',
   components: {
-    AdminPostForm
-  }
+    AdminPostForm,
+  },
+  layout: 'admin',
 };
 </script>
 
@@ -29,4 +29,3 @@ export default {
   }
 }
 </style>
-

@@ -1,23 +1,14 @@
 <template>
   <form @submit.prevent="onSave">
-    <AppControlInput v-model="editedPost.author">
-      Author Name
-    </AppControlInput>
-    <AppControlInput v-model="editedPost.title">
-      Title
-    </AppControlInput>
+    <AppControlInput v-model="editedPost.author"> Author Name </AppControlInput>
+    <AppControlInput v-model="editedPost.title"> Title </AppControlInput>
     <AppControlInput v-model="editedPost.thumbnailLink">
       Thumbnail Link
     </AppControlInput>
-    <AppControlInput
-      v-model="editedPost.content"
-      control-type="textarea"
-    >
+    <AppControlInput v-model="editedPost.content" control-type="textarea">
       Content
     </AppControlInput>
-    <AppButton type="submit">
-      Save
-    </AppButton>
+    <AppButton type="submit"> Save </AppButton>
     <AppButton
       btn-style="cancel"
       style="margin-left: 10px"
@@ -30,21 +21,21 @@
 </template>
 
 <script>
-import AppControlInput from '@/components/UI/AppControlInput'
-import AppButton from '@/components/UI/AppButton'
+import AppControlInput from '@/components/UI/AppControlInput';
+import AppButton from '@/components/UI/AppButton';
 
 export default {
   components: {
     AppControlInput,
-    AppButton
+    AppButton,
   },
   props: {
     post: {
       type: Object,
-      required: false
-    }
+      required: false,
+    },
   },
-  data () {
+  data() {
     return {
       editedPost: this.post
         ? { ...this.post }
@@ -52,19 +43,20 @@ export default {
             author: '',
             title: '',
             thumbnailLink: '',
-            content: ''
-          }
-    }
+            content: '',
+          },
+    };
   },
   methods: {
-    onSave () {
+    async onSave() {
       // Save the post
-      console.log(this.editedPost)
+      await this.$axios.$post('/posts', this.editedPost);
+      await this.$router.push('/admin');
     },
-    onCancel () {
+    onCancel() {
       // Navigate back
-      this.$router.push('/admin')
-    }
-  }
-}
+      this.$router.push('/admin');
+    },
+  },
+};
 </script>
