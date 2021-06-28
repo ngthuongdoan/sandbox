@@ -7,16 +7,6 @@
   </div>
 </template>
 
-<script>
-import PostList from '@/components/Posts/PostList';
-
-export default {
-  components: {
-    PostList,
-  },
-};
-</script>
-
 <style scoped>
 .intro {
   height: 300px;

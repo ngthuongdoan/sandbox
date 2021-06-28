@@ -21,15 +21,8 @@
 </template>
 
 <script>
-import AppControlInput from '@/components/UI/AppControlInput';
-import AppButton from '@/components/UI/AppButton';
-
 export default {
   name: 'AdminAuthPage',
-  components: {
-    AppControlInput,
-    AppButton,
-  },
   layout: 'admin',
   data() {
     return {
