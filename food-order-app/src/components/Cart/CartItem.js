@@ -1,10 +1,22 @@
+import React, { useContext } from 'react';
+import OrderContext from '../../context/order-context';
+
 import classes from './CartItem.module.css';
 
 const CartItem = (props) => {
+  const context = useContext(OrderContext);
   const price = `$${props.price.toFixed(2)}`;
 
+  const removeAmount = () => {
+    context.removeAmount(props.id);
+  };
+
+  const addAmount = () => {
+    context.addAmount(props.id);
+  };
+
   return (
-    <li className={classes['cart-item']}>
+    <div className={classes['cart-item']}>
       <div>
         <h2>{props.name}</h2>
         <div className={classes.summary}>
@@ -13,10 +25,14 @@ const CartItem = (props) => {
         </div>
       </div>
       <div className={classes.actions}>
-        <button onClick={props.onRemove}>−</button>
-        <button onClick={props.onAdd}>+</button>
+        <button type="button" onClick={removeAmount}>
+          −
+        </button>
+        <button type="button" onClick={addAmount}>
+          +
+        </button>
       </div>
-    </li>
+    </div>
   );
 };
 

@@ -6,7 +6,7 @@ import classes from './MealItemForm.module.css';
 
 const MealItemForm = (props) => {
   const context = useContext(OrderContext);
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(1);
   const meal = props.meal;
 
   const amountInputHandler = (event) => {
@@ -15,7 +15,7 @@ const MealItemForm = (props) => {
 
   const addMeal = (event) => {
     event.preventDefault();
-    context.addMeal({ ...meal, amount });
+    context.addMeal(meal, amount);
   };
   return (
     <form className={classes.form} onSubmit={addMeal}>
