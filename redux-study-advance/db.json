@@ -1,0 +1,16 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Gone with The Wind",
+      "price": 30,
+      "description": "Eiusmod nulla esse laborum cupidatat nostrud laborum consequat mollit in tempor."
+    },
+    {
+      "id": 2,
+      "title": "White Fang",
+      "price": 200,
+      "description": "Eiusmod nulla esse laborum cupidatat nostrud laborum consequat mollit in tempor."
+    }
+  ]
+}

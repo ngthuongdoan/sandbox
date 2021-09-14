@@ -1,9 +1,17 @@
+import React, { useState, useEffect } from 'react';
+
 import classes from './AvailableMeals.module.css';
-import meals from '../../common/dummy-meals';
 import MealItem from './MealItem';
 import Card from '../UI/Card';
 
 const AvailableMeals = (props) => {
+  const [meals, setMeals] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost:5000/meals')
+      .then((response) => response.json())
+      .then((data) => setMeals(data));
+  }, []);
+
   return (
     <Card className={classes.meals}>
       <ul>
